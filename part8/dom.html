@@ -1,117 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript DOM Fun Examples with chai</title>
-    <style>
-      body {
-        background-color: #1a1a1a;
-        color: #fff;
-        text-align: center;
-      }
-      .highlight {
-        background-color: yellow;
-        font-weight: bold;
-        color: #1a1a1a;
-      }
-      .hidden {
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>JavaScript DOM Fun Examples</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Learning Playground</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚀 JavaScript Learning Playground</h1>
+    <p>From Basics to Advanced — Learn by Examples & Notes</p>
+  </header>
 
-    <!-- Example 1: Accessing DOM Elements -->
-    <section id="example-1">
-      <h2>Accessing DOM Elements</h2>
-      <p id="myParagraph">
-        This is a paragraph. Click the button to change me!
-      </p>
-      <button id="changeTextButton">Change Text</button>
+  <nav>
+    <ul>
+      <li><a href="#variables">Variables</a></li>
+      <li><a href="#datatypes">Data Types</a></li>
+      <li><a href="#functions">Functions</a></li>
+      <li><a href="#objects">Objects & OOP</a></li>
+      <li><a href="#arrays">Arrays</a></li>
+      <li><a href="#dom">DOM Manipulation</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#async">Async (Promises & Async/Await)</a></li>
+      <li><a href="#es6">ES6 Features</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- BASICS -->
+    <section id="variables" class="card">
+      <h2>1. Variables</h2>
+      <p id="varExample">Click the button to see variable change!</p>
+      <button id="changeVar">Change Variable</button>
+      <div class="note">💡 Use <code>let</code> for block scope, <code>const</code> for constants, <code>var</code> (old, avoid).</div>
     </section>
 
-    <!-- Example 2: Traversing the DOM -->
-    <section id="example-2">
-      <h2>Traversing the DOM</h2>
-      <ul id="citiesList">
-        <li class="chai">New York</li>
-        <li>Tokyo</li>
-        <li>Paris</li>
-        <li>London</li>
-      </ul>
-      <button id="highlightFirstCity">Highlight First City</button>
+    <section id="datatypes" class="card">
+      <h2>2. Data Types</h2>
+      <button id="showTypes">Show Types</button>
+      <pre id="typeOutput"></pre>
+      <div class="note">💡 JS has <strong>primitive</strong> (string, number, boolean, null, undefined, symbol, bigint) and <strong>non-primitive</strong> (object, array, function).</div>
     </section>
 
-    <!-- Example 3: Manipulating DOM Elements -->
-    <section id="example-3">
-      <h2>Manipulating DOM Elements</h2>
-      <div id="coffeeOrder">Order: <span id="coffeeType">Latte</span></div>
-      <button id="changeOrder">Change Order to Espresso</button>
+    <!-- FUNCTIONS -->
+    <section id="functions" class="card">
+      <h2>3. Functions</h2>
+      <button id="runFunction">Run Function</button>
+      <p id="functionOutput"></p>
+      <div class="note">💡 Functions can be <em>declarations</em>, <em>expressions</em>, or <em>arrow functions</em>.</div>
     </section>
 
-    <!-- Example 4: Creating and Inserting Elements -->
-    <section id="example-4">
-      <h2>Creating and Inserting Elements</h2>
-      <button id="addNewItem">Add a New Item to the Shopping List</button>
-      <ul id="shoppingList">
-        <li>Bread</li>
-        <li>Milk</li>
-      </ul>
+    <!-- OBJECTS & OOP -->
+    <section id="objects" class="card">
+      <h2>4. Objects & OOP</h2>
+      <button id="showObject">Show Object Info</button>
+      <pre id="objectOutput"></pre>
+      <div class="note">💡 Objects group data + behavior. Classes (ES6) make OOP easier.</div>
     </section>
 
-    <!-- Example 5: Removing DOM Elements -->
-    <section id="example-5">
-      <h2>Removing DOM Elements</h2>
-      <ul id="taskList">
-        <li>Task 1</li>
-        <li>Task 2</li>
-        <li>Task 3</li>
-      </ul>
-      <button id="removeLastTask">Remove Last Task</button>
+    <!-- ARRAYS -->
+    <section id="arrays" class="card">
+      <h2>5. Arrays</h2>
+      <button id="arrayDemo">Array Methods</button>
+      <pre id="arrayOutput"></pre>
+      <div class="note">💡 Useful methods: <code>map()</code>, <code>filter()</code>, <code>reduce()</code>, <code>forEach()</code>.</div>
     </section>
 
-    <!-- Example 6: Event Handling in the DOM -->
-    <section id="example-6">
-      <h2>Event Handling in the DOM</h2>
-      <button id="clickMeButton">Click Me!</button>
+    <!-- DOM -->
+    <section id="dom" class="card">
+      <h2>6. DOM Manipulation</h2>
+      <p id="domText">Hello DOM!</p>
+      <button id="changeDom">Change DOM Text</button>
+      <div class="note">💡 Use <code>getElementById</code>, <code>querySelector</code>, etc.</div>
     </section>
 
-    <!-- Example 7: Event Delegation -->
-    <section id="example-7">
-      <h2>Event Delegation</h2>
-      <ul id="teaList">
-        <li class="teaItem">Green Tea</li>
-        <li class="teaItem">Black Tea</li>
-        <li class="teaItem">Oolong Tea</li>
-      </ul>
-      <p>Click on any tea to select it!</p>
+    <!-- EVENTS -->
+    <section id="events" class="card">
+      <h2>7. Events</h2>
+      <button id="eventButton">Click Me!</button>
+      <p id="eventOutput"></p>
+      <div class="note">💡 Events are actions like click, dblclick, keypress.</div>
     </section>
 
-    <!-- Example 8: Form Handling -->
-    <section id="example-8">
-      <h2>Form Handling</h2>
-      <form id="feedbackForm">
-        <label for="feedbackInput">Your Feedback:</label>
-        <input type="text" id="feedbackInput" placeholder="Enter feedback" />
-        <button type="submit">Submit Feedback</button>
-      </form>
-      <p id="feedbackDisplay"></p>
+    <!-- ASYNC -->
+    <section id="async" class="card">
+      <h2>8. Async JavaScript</h2>
+      <button id="fetchData">Fetch Data (Fake API)</button>
+      <pre id="apiOutput"></pre>
+      <div class="note">💡 <code>Promises</code> handle async tasks. <code>async/await</code> makes them easier.</div>
     </section>
 
-    <!-- Example 9: DOM Content Loaded -->
-    <section id="example-9">
-      <h2>DOM Content Loaded</h2>
-      <p id="domStatus">Waiting for DOM to load...</p>
+    <!-- ES6 -->
+    <section id="es6" class="card">
+      <h2>9. ES6 Features</h2>
+      <button id="es6Demo">Run ES6 Example</button>
+      <pre id="es6Output"></pre>
+      <div class="note">💡 Features: Destructuring, Spread, Rest, Template Literals, Modules.</div>
     </section>
+  </main>
 
-    <!-- Example 10: CSS Classes Manipulation -->
-    <section id="example-10">
-      <h2>CSS Classes Manipulation</h2>
-      <p id="descriptionText">This text will change color!</p>
-      <button id="toggleHighlight">Toggle Highlight</button>
-    </section>
-    <script src="./script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
